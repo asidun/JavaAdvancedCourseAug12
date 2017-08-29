@@ -7,7 +7,9 @@ import com.flowergarden.properties.FreshnessInteger;
 public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower> {
 	
 	private FreshnessInteger freshness;	
+	@XmlElement
 	private float price;
+	@XmlElement
 	private int lenght;
 	
 	public GeneralFlower(int lenght, float price, FreshnessInteger fresh){
