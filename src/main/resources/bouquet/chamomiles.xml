@@ -1,0 +1,4 @@
+<chamomiles>
+    <chamomile petals = "12" length="12" price="15" freshness="1"></chamomile>
+    <chamomile petals = "11" length="10" price="9" freshness="1"></chamomile>
+</chamomiles>

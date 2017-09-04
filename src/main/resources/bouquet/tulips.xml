@@ -1,0 +1,4 @@
+<tulips>
+    <tulip color="red" length="12" price="15" freshness="1"></tulip>
+    <tulip color="yellow" length="10" price="9" freshness="1"></tulip>
+</tulips>

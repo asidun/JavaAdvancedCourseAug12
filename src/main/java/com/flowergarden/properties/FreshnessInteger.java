@@ -3,8 +3,10 @@ package com.flowergarden.properties;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+//@XmlRootElement
 public class FreshnessInteger implements Freshness<Integer>, Comparable<FreshnessInteger> {
 
+	@XmlElement
 	private Integer freshness;
 	
 	@Override

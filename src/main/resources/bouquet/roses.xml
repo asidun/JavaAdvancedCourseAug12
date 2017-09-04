@@ -1,0 +1,4 @@
+<roses>
+    <rose spike="1" length="12" price="15" freshness="1"></rose>
+    <rose spike="1" length="10" price="9" freshness="1"></rose>
+</roses>

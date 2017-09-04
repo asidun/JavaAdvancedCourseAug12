@@ -1,13 +1,16 @@
 package com.flowergarden.flowers;
 
-import javax.xml.bind.annotation.XmlElement;
-
 import com.flowergarden.properties.FreshnessInteger;
 
+import javax.xml.bind.annotation.XmlElement;
+
+//implements Comparable interface (its method compareTo()) to help Collections.sort()
 public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower> {
 	
-	private FreshnessInteger freshness;	
+	private FreshnessInteger freshness;
+	@XmlElement
 	private float price;
+	@XmlElement
 	private int lenght;
 	
 	public GeneralFlower(int lenght, float price, FreshnessInteger fresh){
@@ -40,9 +43,8 @@ public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower>
 	}
 
 	@Override
-	public int compareTo(GeneralFlower compareFlower) {
+	public int compareTo(GeneralFlower compareFlower) { //will help Collections.sort()
 		int compareFresh = compareFlower.getFreshness().getFreshness();		
-		return this.getFreshness().getFreshness() - compareFresh;
+		return this.getFreshness().getFreshness() - compareFresh; //we'll get -1 or 0 or 1
 	}
-
 }
