@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class RunFile {
-	
+
 	public static void main(String[] arg) throws IOException{
 		BufferedReader bufferedIn = null;
 		try{
