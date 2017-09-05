@@ -12,7 +12,7 @@ import com.flowergarden.properties.FreshnessInteger;
 
 import org.junit.Assert;
 
-public class MarriedBouquetTest {
+public class MarriedBouquetTests {
 	
 	private MarriedBouquet boquete = new MarriedBouquet();
 	

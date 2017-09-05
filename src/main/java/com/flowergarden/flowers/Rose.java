@@ -24,6 +24,24 @@ public class Rose extends GeneralFlower {
 		return spike;
 	}
 	
+	public void setSpike(boolean spike) {
+		this.spike = spike;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		Rose rose = (Rose) o;
+		if (rose.spike == spike 
+				&& rose.getLenght() == getLenght() 
+				&& rose.getPrice() == getPrice() 
+				&& rose.getFreshness().getFreshness() == getFreshness().getFreshness() ){
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
 
 
 }
