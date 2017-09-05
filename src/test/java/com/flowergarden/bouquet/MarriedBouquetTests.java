@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.flowers.Rose;
 import com.flowergarden.properties.FreshnessInteger;
+import static org.mockito.Mockito.*;
 
 import org.junit.Assert;
 
@@ -28,15 +29,39 @@ public class MarriedBouquetTests {
 	@Test
 	public void searchFlowersByLenghtTest(){
 		//Given
-		Collection<GeneralFlower> flowers = new ArrayList<>();
+		MarriedBouquet mockBoquete =new MarriedBouquet();
+		GeneralFlower flower1 = mock(GeneralFlower.class);
+		when(flower1.getLenght()).thenReturn(15);
+		GeneralFlower flower2 = mock(GeneralFlower.class);
+		when(flower2.getLenght()).thenReturn(25);
+		mockBoquete.addFlower(flower1);
+		mockBoquete.addFlower(flower2);
+		
+		ArrayList<GeneralFlower> flowers = new ArrayList<>();
 		flowers.add(new Rose(true, 15, 15, new FreshnessInteger(1)));
 		flowers.add(new Rose(true, 25, 25, new FreshnessInteger(1)));
 		
 		//When
-		Collection<GeneralFlower> result = boquete.searchFlowersByLenght(15, 26);
+		ArrayList<GeneralFlower> result = (ArrayList<GeneralFlower>) mockBoquete.searchFlowersByLenght(15, 26);
 		
 		//Then
-		Assert.assertEquals(flowers, result);
+		Assert.assertEquals(flowers.get(0).getLenght(), result.get(0).getLenght());
+	}
+	
+	@Test
+	public void verifyGetPrice() {
+		//Given
+		GeneralFlower flower = mock(GeneralFlower.class);
+		boquete.addFlower(flower);
+		when(flower.getLenght()).thenReturn(12);
+		
+		
+		//When
+		boquete.getPrice();
+		
+		//Then
+		verify(flower).getPrice();
+
 	}
 
 }
