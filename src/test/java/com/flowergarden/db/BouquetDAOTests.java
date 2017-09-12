@@ -56,7 +56,17 @@ public class BouquetDAOTests {
 	
 	@Test
 	public void getBouquetByIdTest(){
+		//Given
+		Bouquet expectedBouquet = new MarriedBouquet();
 		
+		BouquetDAO dao = new BouquetDAO();
+		dao.setConnection(conn);
+		
+		//When
+		Bouquet bouquet = dao.getBouquetById(1);
+		
+		//Then
+		assertEquals(expectedBouquet, bouquet);
 	}
 
 }
