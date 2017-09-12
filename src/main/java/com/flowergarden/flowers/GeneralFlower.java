@@ -47,4 +47,37 @@ public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower>
 		return this.getFreshness().getFreshness() - compareFresh;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((freshness == null) ? 0 : freshness.hashCode());
+		result = prime * result + lenght;
+		result = prime * result + Float.floatToIntBits(price);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GeneralFlower other = (GeneralFlower) obj;
+		if (freshness == null) {
+			if (other.freshness != null)
+				return false;
+		} else if (!freshness.equals(other.freshness))
+			return false;
+		if (lenght != other.lenght)
+			return false;
+		if (Float.floatToIntBits(price) != Float.floatToIntBits(other.price))
+			return false;
+		return true;
+	}
+
+	
+	
 }

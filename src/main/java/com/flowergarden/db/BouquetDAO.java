@@ -36,7 +36,7 @@ public class BouquetDAO {
 				break;
 			}
 		}
-		return null;
+		return result;
 	}
 
 	public Bouquet getBouquetById(int id) {
