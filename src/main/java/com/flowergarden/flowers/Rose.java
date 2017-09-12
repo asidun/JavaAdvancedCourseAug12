@@ -8,7 +8,7 @@ import com.flowergarden.properties.FreshnessInteger;
 
 @XmlRootElement
 public class Rose extends GeneralFlower {
-	@XmlElement
+	
 	private boolean spike;
 	
 	public Rose(boolean spike, int lenght, float price, FreshnessInteger fresh){
@@ -20,6 +20,7 @@ public class Rose extends GeneralFlower {
 		
 	}
 	
+	@XmlElement
 	public boolean getSpike(){
 		return spike;
 	}

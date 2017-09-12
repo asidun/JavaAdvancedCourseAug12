@@ -3,6 +3,7 @@ package com.flowergarden.db;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -46,6 +47,22 @@ public class FlowerDAO {
 		}
 		
 		return result;
+	}
+	
+	private void showMetadata(ResultSet rst) throws SQLException{
+		System.out.println("\n\nResultSet metadata info:");
+		ResultSetMetaData meta = (ResultSetMetaData) rst.getMetaData();
+		int n = meta.getColumnCount();
+		for (int i=1;i<=n;i++)  {
+		    System.out.printf("%d = %s <%s>",
+		            i,
+		            meta.getColumnName(i),
+		            meta.getColumnTypeName(i));
+		    if (meta.isNullable(i)==meta.columnNoNulls) System.out.print(" NOT NULL");
+		    if (meta.isAutoIncrement(i)) System.out.print(" AUTO");
+		    System.out.println("");
+		} 
+
 	}
 
 }

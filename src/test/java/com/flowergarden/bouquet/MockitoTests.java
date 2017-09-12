@@ -12,7 +12,7 @@ public class MockitoTests {
 		List mockedList = mock(List.class); 
 		mockedList.add("one"); 
 		mockedList.clear(); 
-		verify(mockedList).add("two"); 
+		verify(mockedList).add("one"); 
 		verify(mockedList).clear(); 
 
 	}

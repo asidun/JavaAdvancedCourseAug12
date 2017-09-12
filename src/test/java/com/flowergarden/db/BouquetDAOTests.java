@@ -2,6 +2,7 @@ package com.flowergarden.db;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.flowergarden.bouquet.Bouquet;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BouquetDAOTests {
 	
 	Connection conn;
@@ -33,7 +35,6 @@ public class BouquetDAOTests {
 	public void finishTest() throws SQLException{
 		conn.close();
 	}
-	
 	
 	
 	
@@ -55,7 +56,7 @@ public class BouquetDAOTests {
 	}
 	
 	@Test
-	public void getBouquetByIdTest(){
+	public void getBouquetByIdTest() throws SQLException{
 		//Given
 		Bouquet expectedBouquet = new MarriedBouquet();
 		
