@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import com.flowergarden.bouquet.Bouquet;
 import com.flowergarden.bouquet.MarriedBouquet;
+import com.flowergarden.flowers.Rose;
+import com.flowergarden.properties.FreshnessInteger;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -23,12 +25,15 @@ import java.util.List;
 public class BouquetDAOTests {
 	
 	Connection conn;
+	BouquetDAO dao;
 	
 	@Before
 	public void setupTest() throws IOException, SQLException{
 		File file = new File("flowergarden.db");
 		String url = "jdbc:sqlite:"+file.getCanonicalFile().toURI();
 		conn = DriverManager.getConnection(url);
+		dao = new BouquetDAO();
+		dao.setConnection(conn);
 	}
 	
 	@After
@@ -43,10 +48,7 @@ public class BouquetDAOTests {
 		//Given
 		List<Bouquet>expectedBs = new ArrayList<>();
 		expectedBs.add(new MarriedBouquet());
-		
-		BouquetDAO dao = new BouquetDAO();
-		dao.setConnection(conn);
-		
+				
 		//When
 		List<Bouquet> bs = dao.getBouquets();
 		
@@ -60,14 +62,22 @@ public class BouquetDAOTests {
 		//Given
 		Bouquet expectedBouquet = new MarriedBouquet();
 		
-		BouquetDAO dao = new BouquetDAO();
-		dao.setConnection(conn);
 		
 		//When
 		Bouquet bouquet = dao.getBouquetById(1);
 		
 		//Then
 		assertEquals(expectedBouquet, bouquet);
+	}
+	
+	@Test
+	public void addFlowerTest() throws SQLException{
+		//Given
+		
+		//When
+		dao.addFlower(1, new Rose(true, 15, 13, new FreshnessInteger(1)));
+		
+		//Then
 	}
 
 }

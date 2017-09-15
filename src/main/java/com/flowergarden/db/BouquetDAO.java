@@ -10,8 +10,10 @@ import java.util.List;
 
 import com.flowergarden.bouquet.Bouquet;
 import com.flowergarden.bouquet.MarriedBouquet;
+import com.flowergarden.flowers.Chamomile;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.flowers.Rose;
+import com.flowergarden.properties.FreshnessInteger;
 
 public class BouquetDAO {
 	
@@ -69,8 +71,41 @@ public class BouquetDAO {
 		this.conn = conn;		
 	}
 
-	public void addFlower(GeneralFlower flower) {
-		// TODO Auto-generated method stub
+	public void addFlower(int bouquetId, GeneralFlower flower) throws SQLException {			
+		String name = flower.getClass().getSimpleName().toLowerCase();
+		
+		switch (name) {
+		case "rose":
+			long id;
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO flower "
+					+ "(name, spike, lenght, price, freshness, bouquet_id) VALUES (?, ?, ?, ?, ?, ?)");
+			Rose rose = (Rose)flower;
+			stmt.setString(1, name);
+			stmt.setBoolean(2, rose.getSpike());
+			stmt.setInt(3, rose.getLenght());
+			stmt.setFloat(4, rose.getPrice());
+			stmt.setInt(5, rose.getFreshness().getFreshness());
+			stmt.setInt(6, bouquetId);
+			stmt.executeUpdate();
+			
+// Example. Get inserted ID
+//			ResultSet generatedKeys = stmt.getGeneratedKeys();
+//	        if (generatedKeys.next()) {
+//	                id = generatedKeys.getLong(1);
+//	        }else{
+//	        	throw new SQLException("Can not get autogenered key");
+//	        }
+			
+			break;
+			
+		case "chamomile":
+			
+			break;
+
+		default:
+			break;
+		}
+		
 		
 	}
 
