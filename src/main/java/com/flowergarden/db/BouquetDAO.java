@@ -99,16 +99,6 @@ public class BouquetDAO {
 			break;
 			
 		case "chamomile":
-			stmt = conn.prepareStatement("INSERT INTO flower "
-					+ "(name, petals, lenght, price, freshness, bouquet_id) VALUES (?, ?, ?, ?, ?, ?)");
-			Chamomile chamomile = (Chamomile)flower;
-			stmt.setString(1, name);
-			stmt.setBoolean(2, chamomile.getPetal());
-			stmt.setInt(3, chamomile.getLenght());
-			stmt.setFloat(4, chamomile.getPrice());
-			stmt.setInt(5, chamomile.getFreshness().getFreshness());
-			stmt.setInt(6, bouquetId);
-			stmt.executeUpdate();
 			
 			break;
 
