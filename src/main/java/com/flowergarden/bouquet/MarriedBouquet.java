@@ -5,11 +5,16 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.flowergarden.flowers.GeneralFlower;
 
+@XmlRootElement
 public class MarriedBouquet implements Bouquet<GeneralFlower> {
-
+	@XmlElement
 	private float assemblePrice = 120;
+	@XmlElement
 	private List<GeneralFlower> flowerList = new ArrayList<>();
 
 	@Override

@@ -1,10 +1,17 @@
 package com.flowergarden.flowers;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.flowergarden.properties.FreshnessInteger;
 
+@XmlRootElement
 public class Chamomile extends GeneralFlower {
 	
 	private int petals;
+	
+	public Chamomile(){
+		
+	}
 	
 	public Chamomile(int petals, int lenght, float price, FreshnessInteger fresh){
 		super(lenght, price, fresh);
