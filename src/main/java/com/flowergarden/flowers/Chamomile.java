@@ -27,6 +27,11 @@ public class Chamomile extends GeneralFlower {
 	public int getPetals(){
 		return petals;
 	}
+
+	@Override
+	public GeneralFlower getFlower() {
+		return new Chamomile(5, 10, 12, new FreshnessInteger(1));
+	}
 	
 
 

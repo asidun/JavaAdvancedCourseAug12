@@ -42,6 +42,10 @@ public class Rose extends GeneralFlower {
 		return false;
 		
 	}
+	@Override
+	public GeneralFlower getFlower() {
+		return new Rose(true, 12, 35, new FreshnessInteger(1));
+	}
 	
 
 
