@@ -46,6 +46,10 @@ public class Rose extends GeneralFlower {
 	public GeneralFlower getFlower() {
 		return new Rose(true, 12, 35, new FreshnessInteger(1));
 	}
+	@Override
+	public Rose clone() {
+		return new Rose(spike, getLenght(), getPrice(), new FreshnessInteger(getFreshness().getFreshness()));
+	}
 	
 
 

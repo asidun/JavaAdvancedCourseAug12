@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.flowergarden.flowers.GeneralFlower;
 
 @XmlRootElement
-public class MarriedBouquet implements Bouquet<GeneralFlower> {
+public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable {
 	@XmlElement
 	private float assemblePrice = 120;
 	@XmlElement
@@ -76,6 +76,16 @@ public class MarriedBouquet implements Bouquet<GeneralFlower> {
 		if (Float.floatToIntBits(assemblePrice) != Float.floatToIntBits(other.assemblePrice))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public MarriedBouquet clone(){
+		MarriedBouquet clone = new MarriedBouquet();
+		clone.assemblePrice = this.assemblePrice;
+		for (GeneralFlower generalFlower : flowerList) {
+			clone.addFlower(generalFlower.clone());
+		}
+		return clone;
 	}
 
 

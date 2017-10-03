@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 
 import com.flowergarden.properties.FreshnessInteger;
 
-public abstract class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower> {
+public abstract class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower>{
 	
 	private FreshnessInteger freshness;	
 	@XmlElement
@@ -79,6 +79,9 @@ public abstract class GeneralFlower implements Flower<Integer>, Comparable<Gener
 			return false;
 		return true;
 	}
+	
+	@Override
+	public abstract GeneralFlower clone();
 
 	
 	

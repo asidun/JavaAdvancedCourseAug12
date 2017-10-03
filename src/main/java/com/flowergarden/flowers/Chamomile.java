@@ -33,6 +33,11 @@ public class Chamomile extends GeneralFlower {
 		return new Chamomile(5, 10, 12, new FreshnessInteger(1));
 	}
 	
+	@Override
+	public Chamomile clone(){
+		return new Chamomile(petals, getLenght(), getPrice(), new FreshnessInteger(getFreshness().getFreshness()));
+	}
+	
 
 
 }
