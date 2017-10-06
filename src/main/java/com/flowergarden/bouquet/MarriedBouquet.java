@@ -8,10 +8,13 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.flowergarden.flowers.Flower;
 import com.flowergarden.flowers.GeneralFlower;
+import com.flowergarden.patterns.iterator.Iterator;
+import com.flowergarden.patterns.iterator.MarriedBouquetIterator;
 
 @XmlRootElement
-public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable {
+public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
 	@XmlElement
 	private float assemblePrice = 120;
 	@XmlElement
@@ -86,6 +89,10 @@ public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable {
 			clone.addFlower(generalFlower.clone());
 		}
 		return clone;
+	}
+	
+	Iterator getIterator(){
+		return new MarriedBouquetIterator(flowerList);
 	}
 
 
