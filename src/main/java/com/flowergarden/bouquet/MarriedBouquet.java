@@ -12,6 +12,8 @@ import com.flowergarden.flowers.Flower;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.patterns.iterator.Iterator;
 import com.flowergarden.patterns.iterator.MarriedBouquetIterator;
+import com.flowergarden.patterns.observer.Seller;
+import com.flowergarden.properties.FreshnessInteger;
 
 @XmlRootElement
 public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
@@ -19,6 +21,7 @@ public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
 	private float assemblePrice = 120;
 	@XmlElement
 	private List<GeneralFlower> flowerList = new ArrayList<>();
+	private List<Seller> sellers = new ArrayList<>();
 
 	@Override
 	public float getPrice() {
@@ -95,7 +98,27 @@ public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
 		return new MarriedBouquetIterator(flowerList);
 	}
 
+	public void reduceFreshnes(){
+		for (GeneralFlower generalFlower : flowerList) {
+			generalFlower.setFreshness(new FreshnessInteger(
+					generalFlower.getFreshness().getFreshness() - 1));
+		}
+		notifyObservers();
+	}
 
+	private void notifyObservers() {
+				for (Seller seller : sellers) {
+					seller.HandleEvent();
+				}
+	}
+	
+	public void addSeller(Seller seller){
+		sellers.add(seller);
+	}
+	
+	public void removeSeller(Seller seller){
+		sellers.remove(seller);
+	}
 	
 	
 }
