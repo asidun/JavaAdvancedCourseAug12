@@ -13,6 +13,7 @@ import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.patterns.iterator.Iterator;
 import com.flowergarden.patterns.iterator.MarriedBouquetIterator;
 import com.flowergarden.properties.FreshnessInteger;
+import com.flowergarden.sellers.ISellerList;
 import com.flowergarden.sellers.SellerList;
 
 @XmlRootElement
@@ -21,7 +22,7 @@ public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
 	private float assemblePrice = 120;
 	@XmlElement
 	private List<GeneralFlower> flowerList = new ArrayList<>();
-	private SellerList sellerList;
+	private ISellerList sellerList;
 
 	@Override
 	public float getPrice() {
@@ -98,11 +99,11 @@ public class MarriedBouquet implements Bouquet<GeneralFlower>, Cloneable{
 		return new MarriedBouquetIterator(flowerList);
 	}
 
-	public SellerList getSellerList() {
+	public ISellerList getSellerList() {
 		return sellerList;
 	}
 
-	public void setSellerList(SellerList sellerList) {
+	public void setSellerList(ISellerList sellerList) {
 		this.sellerList = sellerList;
 	}
 	

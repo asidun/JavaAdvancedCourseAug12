@@ -3,7 +3,7 @@ package com.flowergarden.sellers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SellerList {	
+public class SellerList implements ISellerList {	
 
 	private List<Seller> sellers = new ArrayList<>();
 
