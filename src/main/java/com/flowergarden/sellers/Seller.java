@@ -1,7 +1,8 @@
-package com.flowergarden.patterns.observer;
+package com.flowergarden.sellers;
 
 public interface Seller {
-
+	
 	void HandleEvent();
+	
 	
 }
